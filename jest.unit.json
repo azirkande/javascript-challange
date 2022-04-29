@@ -1,0 +1,9 @@
+{
+    "testMatch": ["<rootDir>/tests/**/*.spec.js" ],
+    "transform": {
+        "^.+\\.jsx?$": "babel-jest"
+      },
+    "transformIgnorePatterns": ["<rootDir>/node_modules/"],
+    "resetMocks": true,
+    "clearMocks": true
+}

@@ -1,0 +1,20 @@
+
+--Question 5. These SQL statements are executed on SQL server.
+
+-- A. Return the names of all salespeople that have an order with George
+
+SELECT distinct(s.NAME) from Salesperson s inner join Orders o on s.SalesPersonId = o.SalesPersonId
+inner join Customer c on c.CustomerID = o.CustomerID
+where c.Name = 'George'
+
+-- B Return the names of all salespeople that do not have any order with George
+
+SELECT distinct(s.NAME) from Salesperson s inner join Orders o on s.SalesPersonId = o.SalesPersonId
+inner join Customer c on c.CustomerID = o.CustomerID
+where c.Name <> 'George'
+
+-- C. Return the names of salespeople that have 2 or more orders.
+
+SELECT s.NAME,COUNT(o.OrderID) from Salesperson s inner join Orders o on s.SalesPersonId = o.SalesPersonId
+group by o.SalesPersonId, s.NAME 
+having COUNT(o.OrderID) >= 2
